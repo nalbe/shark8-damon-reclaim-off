@@ -1,0 +1,9 @@
+# Build artifacts
+*.zip
+*.apk
+*.rar
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store

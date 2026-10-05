@@ -1,0 +1,6 @@
+id=damon_reclaim_off
+name=DAMON Reclaim Off (zram churn fix)
+version=1.2
+versionCode=3
+author=Bastet
+description=Stops the damon_reclaim DAMON kernel thread from page-ing anonymous app memory into zram via process_madvise(MADV_PAGEOUT) with no memory pressure. It ran a 5-9 GiB region at min_age=30s and skip_anon=N, spiking pswpout while every LRU reclaim counter stayed at zero. Cuts pswpout ~500/s and pgmajfault ~800/s to a flat 0/s floor, with bursts up to ~700/s still seen and not attributed. DAMON's own reclaim counters read zero for the whole boot. zram stays enabled as OOM headroom. Ships scripts/revert.sh.
